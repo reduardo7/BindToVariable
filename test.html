@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Test</title>
+	</head>
+	<body>
+		<input id="iTxt" type="text" value="test1" title="ID: iTxt" />
+		<input id="iChk" type="CheckBox" value="verdadero" title="ID: iChk" />
+		<textarea id="ta" title="ID: ta">Texto Area</textarea>
+		<select id="sel" title="ID: sel">
+			<option value="Bar">S1</option>
+			<option value="Foo">S2</option>
+		</select>
+		<select id="sel2" title="ID: sel2">
+			<option>111</option>
+			<option>222</option>
+		</select>
+		<div id="dh" title="ID: dh">Test HTML</div>
+
+		<script type="text/javascript" src="bind.js"></script>
+		<script type="text/javascript">
+			(function () {
+				this.$$('iTxt');
+				this.iTxt = 'From anomimous function';
+			}).apply({});
+			
+			with ({}) {
+				$$('ta');
+				ta = 'From anomimous object';
+			}
+			
+			iTxt = 'From window';
+			ta = 'From window';
+		</script>
+	</body>
+</html>
